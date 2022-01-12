@@ -1,7 +1,23 @@
-<h1>News</h1>
+<div>
+  <p>Temperature: {{ temp }}</p>
+  <p>Description: {{ detail }}</p>
+  <p>Pressure: {{ pressure }} hPa</p>
+  <p>Relative Humidity: {{ humidity }}</p>
+</div>
+
+<br />
+<br />
+<br />
 
 <div>
-  <ul *ngFor="let item of newsList">
-    <li>{{ item }}</li>
+  <ul *ngFor="let article of articles">
+    <li>
+      <p>Source: {{ article.publishedAt }}</p>
+      <p>Author: {{ article.author }}</p>
+      <p>Date: {{ article.publishedAt | date }}</p>
+      <p>Description: {{ article.description }}</p>
+      <p>Read more: {{ article.url }}</p>
+    </li>
+    <br />
   </ul>
 </div>
