@@ -8,14 +8,20 @@ import { Observable } from 'rxjs';
   styleUrls: ['./news-list.component.css'],
 })
 export class NewsListComponent implements OnInit {
-  private API_KEY = 'a1165ec873794ad6a7711b399b973356';
+  public newsList: any[] = [];
+
+  private API_KEY = '53a8148678004285a49eecd885986d61';
 
   private _url: string =
-    'https://newsapi.org/v2/everything?q=bitcoin&apiKey=' + this.API_KEY;
+    'newsapi.org/v2/everything?q=bitcoin&apiKey=' + this.API_KEY;
 
   constructor(private http: HttpClient) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getNewsList().subscribe((data) => (this.newsList = data));
+
+    console.log(this.newsList);
+  }
 
   // Cast the Observable into an array
   getNewsList(): Observable<any[]> {
